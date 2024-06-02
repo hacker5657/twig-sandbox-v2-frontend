@@ -13,7 +13,9 @@
         <RouterLink v-if="isAuthUser" to="/profile">
           <Button>Профиль</Button>
         </RouterLink>
-        <Button v-if="isAuthUser" @click="logoutUser()">Выйти</Button>
+        <RouterLink v-if="isAuthUser" to="/logout">
+          <Button>Выйти</Button>
+        </RouterLink>
       </div>
     </header>
 </template>
@@ -28,12 +30,6 @@ export default {
   },
   props: {
     isAuthUser: Boolean
-  },
-  methods: {
-    async logoutUser(){
-      const { data } = await api.post('/auth/logout')
-      this.$router.replace('/')
-    }
   }
 }
 </script>
