@@ -13,7 +13,7 @@
         <RouterLink v-if="isAuthUser" to="/profile">
           <Button>Профиль</Button>
         </RouterLink>
-        <Button @click="logoutUser()">Выйти</Button>
+        <Button v-if="isAuthUser" @click="logoutUser()">Выйти</Button>
       </div>
     </header>
 </template>
