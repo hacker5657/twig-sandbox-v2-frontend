@@ -32,6 +32,7 @@ export default {
   methods: {
     async logoutUser(){
       const { data } = await api.post('/auth/logout')
+      this.$router.replace('/')
     }
   }
 }
