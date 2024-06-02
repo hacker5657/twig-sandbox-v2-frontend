@@ -29,9 +29,7 @@ export default {
     Button
   },
   props: {
-    isAuthUser: {
-      type: Boolean
-    }
+    isAuthUser: Boolean
   }
 }
 </script>
