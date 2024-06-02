@@ -32,20 +32,6 @@ export default {
     isAuthUser: {
       type: Boolean
     }
-  },
-  data() {
-    return {
-      isAuthUser: false
-    }
-  },
-  async beforeMount() {
-    const { data } = await api.get('/auth/check')
-
-    if (data.success) {
-      this.isAuthUser = true
-    } else {
-      this.isAuthUser = false
-    }
   }
 }
 </script>
