@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header/>
+    <Header :isAuthUser="isAuthUser"/>
     <main class="main">
       <div class="form">
         <div class="input-wrapper">
@@ -13,7 +13,7 @@
       </div>
       <div class="btns">
         <Button @click="setResultUrl()">Применить</Button>
-        <Button @click="visible = true">Сохранить</Button>
+        <Button v-if="isAuthUser" @click="visible = true">Сохранить</Button>
       </div>
       <iframe class="preview" :src="url" frameborder="0"></iframe>
     </main>
@@ -48,7 +48,8 @@ export default {
       template: this.$store.state.template,
       url: '',
       visible: false,
-      name: ''
+      name: '',
+      isAuthUser: false
     }
   },
   methods: {
@@ -81,6 +82,15 @@ export default {
           this.visible = false
         }
       }
+    }
+  },
+  async beforeMount() {
+    const { data } = await api.get('/auth/check')
+
+    if (data.success) {
+      this.isAuthUser = true
+    } else {
+      this.isAuthUser = false
     }
   }
 }
