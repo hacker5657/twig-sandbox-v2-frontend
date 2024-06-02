@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'https://twig-sandbox-v2-backend.vercel.app/api',
   withCredentials: true
 })
