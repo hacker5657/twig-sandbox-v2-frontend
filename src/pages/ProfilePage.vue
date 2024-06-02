@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header/>
+    <Header :isAuthUser="true"/>
     <div class="main">
       <Card v-for="template in templates" style="width: 200px; height: max-content;position: relative;">
         <template #title>
