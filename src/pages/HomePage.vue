@@ -56,7 +56,7 @@ export default {
       this.json = JSON.stringify(JSON.parse(this.json), null, 4)
     },
     setResultUrl() {
-      let newUrl = "http://localhost:8000/result?"
+      let newUrl = `${proccess.env.SITE_URL}/result?`
 
       this.$store.commit('setJsonValue', this.json)
       this.$store.commit('setTemplateValue', this.template)
