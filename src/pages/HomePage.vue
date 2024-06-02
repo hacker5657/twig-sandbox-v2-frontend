@@ -56,7 +56,7 @@ export default {
       this.json = JSON.stringify(JSON.parse(this.json), null, 4)
     },
     setResultUrl() {
-      let newUrl = `${process.env.SITE_URL}/result?`
+      let newUrl = 'https://twig-sandbox-v2-backend.vercel.app/result?'
 
       this.$store.commit('setJsonValue', this.json)
       this.$store.commit('setTemplateValue', this.template)
