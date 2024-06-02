@@ -28,6 +28,11 @@ export default {
   components: {
     Button
   },
+  props: {
+    isAuthUser: {
+      type: Boolean
+    }
+  },
   data() {
     return {
       isAuthUser: false
