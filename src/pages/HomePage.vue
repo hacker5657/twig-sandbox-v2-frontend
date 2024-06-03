@@ -5,7 +5,7 @@
       <div class="form">
         <div class="input-wrapper">
           <TextArea v-model="json" placeholder="Enter json" class="input"/>
-          <Button @click="formatJson()" class="btn" v-tooltip="'format'" severity="secondary">
+          <Button @click="formatJson()" class="btn" v-tooltip="'Форматировать'" severity="secondary">
             <i class="pi pi-pencil"></i>
           </Button>
         </div>
