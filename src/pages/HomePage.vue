@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header :isAuthUser="isAuthUser"/>
+    <Header :isAuthUser="isAuthUser" @logout="logoutUser()"/>
     <main class="main">
       <div class="form">
         <div class="input-wrapper">
@@ -82,6 +82,11 @@ export default {
           this.visible = false
         }
       }
+    },
+    async logoutUser(){
+      const { data } = await api.post('/auth/logout')
+
+      this.isAuthUser = false
     }
   },
   async beforeMount() {
