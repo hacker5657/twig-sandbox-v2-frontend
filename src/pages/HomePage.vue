@@ -4,12 +4,12 @@
     <main class="main">
       <div class="form">
         <div class="input-wrapper">
-          <TextArea v-model="json" placeholder="Enter json" class="input"/>
+          <TextArea v-model="json" placeholder="Json" class="input"/>
           <Button @click="formatJson()" class="btn" v-tooltip="'Форматировать'" severity="secondary">
             <i class="pi pi-pencil"></i>
           </Button>
         </div>
-        <TextArea v-model="template" placeholder="Enter twig template" class="textarea"/>
+        <TextArea v-model="template" placeholder="Twig template" class="textarea"/>
       </div>
       <div class="btns">
         <Button @click="setResultUrl()">Применить</Button>
