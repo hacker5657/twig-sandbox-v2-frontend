@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header :isAuthUser="true"/>
+    <Header :isAuthUser="isAuthUser" @logout="logoutUser()"/>
     <div class="main">
       <Card v-for="template in templates" style="width: 200px; height: max-content;position: relative;">
         <template #title>
@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return {
-      templates: []
+      templates: [],
+      isAuthUser: false
     }
   },
   methods: {
@@ -48,6 +49,13 @@ export default {
       if (data.success) {
         this.templates = this.templates.filter((item) => item.id != id)
       }
+    },
+    async logoutUser(){
+      const { data } = await api.post('/auth/logout')
+
+      this.isAuthUser = false
+
+      this.$router.replace('/')
     }
   },
   async beforeMount(){ 
@@ -55,6 +63,8 @@ export default {
 
     if (!data.success) {
       this.$router.replace('/')
+    } else {
+      this.isAuthUser = true
     }
 
     const { data:templates } = await api.get('/templates')
